@@ -1,0 +1,288 @@
+2024-11-25 21:39:10.144013: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+当前脚本的文件名是: pcapTrainVGG_999_2.py
+2024-11-25 21:39:12.315250: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-11-25 21:39:12.322934: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-25 21:39:12.324110: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2024-11-25 21:39:12.330261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-25 21:39:12.330291: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-25 21:39:12.333462: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-25 21:39:12.333529: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-25 21:39:12.334735: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-25 21:39:12.335087: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-25 21:39:12.338308: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-25 21:39:12.339042: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-25 21:39:12.339231: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-25 21:39:12.339638: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-25 21:39:12.339673: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-25 21:39:13.077696: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-25 21:39:13.077752: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-25 21:39:13.077772: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-25 21:39:13.078475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15710 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 4090, pci bus id: 0000:3b:00.0, compute capability: 8.9)
+BETA = 0.999, GAMMA = 2
+init data completed!
+2024-11-25 21:39:58.602882: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-25 21:39:58.603589: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-25 21:39:58.603628: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-25 21:39:58.603683: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-25 21:39:58.603699: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-25 21:39:58.603715: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-25 21:39:58.603745: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-25 21:39:58.603761: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-25 21:39:58.603777: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-25 21:39:58.603792: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-25 21:39:58.604108: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+Filename: /home/xuke/zdh/pcap_f50/UNSW-IoT/VGG/Loss/pcapVGGSeed.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    76   1477.2 MiB   1477.2 MiB           1       @profile
+    77                                             def create_VGG(self):
+    78   1477.2 MiB      0.0 MiB           1           self.scaling_factor = tf.Variable(
+    79   1477.2 MiB      0.0 MiB           1               tf.constant(1, dtype=tf.float32, shape=[1, DATA_DIM]))
+    80   1477.2 MiB      0.0 MiB           1           self.scaling_factor_extended = tf.tile(self.scaling_factor, [BATCH_SIZE, 1])
+    81   1477.2 MiB      0.0 MiB           1           scaled_input = tf.multiply(self.x_input, self.scaling_factor_extended)
+    82   1477.2 MiB      0.0 MiB           1           scaled_input = tf.reshape(scaled_input, [BATCH_SIZE, DATA_DIM, 1, 1])
+    83   1477.2 MiB      0.0 MiB           1           scaled_input = tf.keras.layers.Input(tensor=scaled_input)  # 使用Input
+    84   1477.2 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(64, (3, 3), activation='relu', padding='same',
+    85   1477.2 MiB      0.0 MiB           1                                      name='conv_1',
+    86   1477.2 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(
+    87   1477.7 MiB      0.5 MiB           1               scaled_input)
+    88   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(64, (3, 3), activation='relu', padding='same',
+    89   1477.7 MiB      0.0 MiB           1                                      name='conv_2',
+    90   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+    91   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2), padding='same', name='pool_1')(x)
+    92   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(128, (3, 3), activation='relu', padding='same',
+    93   1477.7 MiB      0.0 MiB           1                                      name='conv_3',
+    94   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+    95   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(128, (3, 3), activation='relu', padding='same',
+    96   1477.7 MiB      0.0 MiB           1                                      name='conv_4',
+    97   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+    98   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2), padding='same', name='pool_2')(x)
+    99   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(256, (3, 3), activation='relu', padding='same',
+   100   1477.7 MiB      0.0 MiB           1                                      name='conv_5',
+   101   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   102   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(256, (3, 3), activation='relu', padding='same',
+   103   1477.7 MiB      0.0 MiB           1                                      name='conv_6',
+   104   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   105   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(256, (3, 3), activation='relu', padding='same',
+   106   1477.7 MiB      0.0 MiB           1                                      name='conv_7',
+   107   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   108   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2), padding='same', name='pool_3')(x)
+   109   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Conv2D(512, (3, 3), activation='relu', padding='same',
+   110   1477.7 MiB      0.0 MiB           1                                      name='conv_8',
+   111   1477.7 MiB      0.0 MiB           1                                      kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   112                                                 # 全连接层，添加种子
+   113   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Flatten()(x)
+   114   1477.7 MiB      0.0 MiB           1           x = tf.keras.layers.Dense(1024, activation='relu', name='fc_1',
+   115   1477.7 MiB      0.0 MiB           1                                     kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   116   1478.2 MiB      0.5 MiB           1           x = tf.keras.layers.Dropout(0.5)(x)  # 使用 Dropout 层
+   117   1478.2 MiB      0.0 MiB           1           x = tf.keras.layers.Dense(1024, activation='relu', name='fc_2',
+   118   1478.2 MiB      0.0 MiB           1                                     kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+   119   1478.2 MiB      0.0 MiB           1           x = tf.keras.layers.Dropout(0.5)(x)
+   120   1478.2 MiB      0.0 MiB           1           self.y = tf.keras.layers.Dense(OUTPUT_DIM, name='fc_3',
+   121   1478.2 MiB      0.0 MiB           1                                          kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))(x)
+
+
+2024-11-25 21:39:58.837736: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-25 21:39:58.838093: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-25 21:39:58.838124: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-25 21:39:58.838168: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-25 21:39:58.838184: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-25 21:39:58.838200: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-25 21:39:58.838217: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-25 21:39:58.838233: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-25 21:39:58.838249: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-25 21:39:58.838266: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-25 21:39:58.838574: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-25 21:39:58.838621: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-25 21:39:58.838631: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-25 21:39:58.838638: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-25 21:39:58.838996: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15710 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 4090, pci bus id: 0000:3b:00.0, compute capability: 8.9)
+2024-11-25 21:40:00.809326: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:196] None of the MLIR optimization passes are enabled (registered 0 passes)
+2024-11-25 21:40:00.824891: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2100000000 Hz
+Filename: /home/xuke/zdh/pcap_f50/UNSW-IoT/VGG/Loss/pcapVGGSeed.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   123   1478.2 MiB   1478.2 MiB           1       @profile
+   124                                             def build_loss(self):
+   125   1478.2 MiB      0.0 MiB           1           ce = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=self.y, labels=self.target)
+   126   1478.2 MiB      0.0 MiB          32           class_weights = tf.constant([self.weights[str(i)] for i in range(len(self.weights))], dtype=tf.float32)
+   127                                                 # cb
+   128   1478.2 MiB      0.0 MiB           1           sample_weights = tf.gather(class_weights, self.target)
+   129   1478.2 MiB      0.0 MiB           1           cbce = tf.multiply(ce, sample_weights)
+   130                                                 # cbfocalLoss
+   131   1478.2 MiB      0.0 MiB           1           softmax_probs = tf.nn.softmax(self.y)
+   132   1478.2 MiB      0.0 MiB           1           labels_one_hot = tf.one_hot(self.target, depth=len(self.weights))
+   133   1478.2 MiB      0.0 MiB           1           pt = tf.reduce_sum(labels_one_hot * softmax_probs, axis=1)
+   134   1478.2 MiB      0.0 MiB           1           modulator = tf.pow(1.0 - pt, self.gamma)
+   135   1478.2 MiB      0.0 MiB           1           focal_loss = modulator * ce
+   136   1478.2 MiB      0.0 MiB           1           cb_focal_loss = tf.multiply(focal_loss, sample_weights)
+   137   1478.2 MiB      0.0 MiB           1           if(self.lossType == "ce"):
+   138                                                     self.loss = tf.reduce_sum(ce)
+   139   1478.2 MiB      0.0 MiB           1           elif(self.lossType == "cb"):
+   140                                                     self.loss = tf.reduce_sum(cbce)
+   141   1478.2 MiB      0.0 MiB           1           elif(self.lossType == "cb_focal_loss"):
+   142   1478.2 MiB      0.0 MiB           1               self.loss = tf.reduce_sum(cb_focal_loss)
+   143   1481.2 MiB      3.0 MiB           1           self.train_op = tf.compat.v1.train.AdamOptimizer(self.learning_rate).minimize(self.loss,global_step=self.train_step)
+   144   1535.7 MiB     54.5 MiB           1           self.sess.run(tf.compat.v1.global_variables_initializer())
+
+
+2024-11-25 21:40:01.590751: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-25 21:40:02.312666: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-25 21:40:02.316997: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-25 21:40:04.726123: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2024-11-25 21:40:04.868974: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2024-11-25 21:40:35.199466: I tensorflow/stream_executor/cuda/cuda_blas.cc:1838] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+Epoch 1 completed, average loss: 8.719674692125963, duration: 123.44 seconds
+Macro-F1: 0.6906401547854109
+Micro-F1: 0.9216891386339691
+Epoch 2 completed, average loss: 2.1072750500944504, duration: 43.99 seconds
+Macro-F1: 0.7604642421485885
+Micro-F1: 0.9491288613354915
+Epoch 3 completed, average loss: 1.4875651814720847, duration: 43.27 seconds
+Macro-F1: 0.8147088972230523
+Micro-F1: 0.9589320343874543
+Epoch 4 completed, average loss: 1.1775241357215438, duration: 43.20 seconds
+Macro-F1: 0.8258724886417081
+Micro-F1: 0.9622302982180213
+Epoch 5 completed, average loss: 1.0988723385609316, duration: 42.00 seconds
+Macro-F1: 0.841583389477067
+Micro-F1: 0.9666127135854877
+Epoch 6 completed, average loss: 0.9641274137209412, duration: 41.81 seconds
+Macro-F1: 0.8319563593897984
+Micro-F1: 0.9636580189039382
+Epoch 7 completed, average loss: 1.120435920525631, duration: 41.30 seconds
+Macro-F1: 0.8367029361714192
+Micro-F1: 0.9676739605124525
+Epoch 8 completed, average loss: 1.0296952033413096, duration: 41.45 seconds
+Macro-F1: 0.8454868752917751
+Micro-F1: 0.9696284872268626
+Epoch 9 completed, average loss: 0.8013291033659837, duration: 41.57 seconds
+Macro-F1: 0.8466058659355229
+Micro-F1: 0.9702469116950938
+Epoch 10 completed, average loss: 0.6785019526954945, duration: 41.75 seconds
+Macro-F1: 0.8555901555213133
+Micro-F1: 0.9697582800164913
+Epoch 11 completed, average loss: 0.6002330020784857, duration: 41.34 seconds
+Macro-F1: 0.8476039689156207
+Micro-F1: 0.9699720563758799
+Epoch 12 completed, average loss: 0.5537159040088016, duration: 41.87 seconds
+Macro-F1: 0.8505431841885842
+Micro-F1: 0.9712699842721678
+Epoch 13 completed, average loss: 0.4729243216464147, duration: 42.18 seconds
+Macro-F1: 0.8618587253569991
+Micro-F1: 0.9742628533036083
+Epoch 14 completed, average loss: 0.4309648743689772, duration: 42.23 seconds
+Macro-F1: 0.8511584954556649
+Micro-F1: 0.9699109774160546
+Epoch 15 completed, average loss: 0.4181830863131637, duration: 42.40 seconds
+Macro-F1: 0.8349671162474973
+Micro-F1: 0.9638183511734795
+Epoch 16 completed, average loss: 0.4366145068326997, duration: 42.07 seconds
+Macro-F1: 0.8624430228594273
+Micro-F1: 0.9767441860465116
+Epoch 17 completed, average loss: 0.35084855950242017, duration: 40.00 seconds
+Macro-F1: 0.8691440975058391
+Micro-F1: 0.9783169692620135
+Epoch 18 completed, average loss: 0.33619176369659043, duration: 39.08 seconds
+Macro-F1: 0.8696475146035497
+Micro-F1: 0.9762097451480402
+Epoch 19 completed, average loss: 0.3988424904131813, duration: 41.15 seconds
+Macro-F1: 0.8347448076399635
+Micro-F1: 0.9686054146497886
+Epoch 20 completed, average loss: 0.4521171279996009, duration: 40.89 seconds
+Macro-F1: 0.8756504581375674
+Micro-F1: 0.974858373161905
+Epoch 21 completed, average loss: 0.2860896643617935, duration: 41.30 seconds
+Macro-F1: 0.8671332134490985
+Micro-F1: 0.9767747255264243
+Epoch 22 completed, average loss: 0.26846706702451567, duration: 41.48 seconds
+Macro-F1: 0.8778718298393086
+Micro-F1: 0.9788437752905068
+Epoch 23 completed, average loss: 0.25340996207989314, duration: 41.59 seconds
+Macro-F1: 0.878247645454541
+Micro-F1: 0.9783780482218388
+Epoch 24 completed, average loss: 0.2677852195522943, duration: 41.27 seconds
+Macro-F1: 0.8665023272235737
+Micro-F1: 0.9760875872283895
+Epoch 25 completed, average loss: 0.2393309268150377, duration: 41.41 seconds
+Macro-F1: 0.874828173610222
+Micro-F1: 0.9778894165432362
+Epoch 26 completed, average loss: 0.2270069973210476, duration: 40.94 seconds
+Macro-F1: 0.861728333703351
+Micro-F1: 0.9750339751714028
+Epoch 27 completed, average loss: 0.30969636290379815, duration: 41.59 seconds
+Macro-F1: 0.8686693887620603
+Micro-F1: 0.9784543969216204
+Epoch 28 completed, average loss: 0.2826654417122311, duration: 41.16 seconds
+Macro-F1: 0.8738263934991418
+Micro-F1: 0.9811647757638687
+Epoch 29 completed, average loss: 0.21359818403628214, duration: 41.89 seconds
+Macro-F1: 0.8848006874570512
+Micro-F1: 0.9828139076791522
+Epoch 30 completed, average loss: 0.25671426079087317, duration: 41.45 seconds
+Macro-F1: 0.8766631528910452
+Micro-F1: 0.9830429537784972
+total_training_time 19912.885346651077
+loss_history [8.719674692125963, 2.1072750500944504, 1.4875651814720847, 1.1775241357215438, 1.0988723385609316, 0.9641274137209412, 1.120435920525631, 1.0296952033413096, 0.8013291033659837, 0.6785019526954945, 0.6002330020784857, 0.5537159040088016, 0.4729243216464147, 0.4309648743689772, 0.4181830863131637, 0.4366145068326997, 0.35084855950242017, 0.33619176369659043, 0.3988424904131813, 0.4521171279996009, 0.2860896643617935, 0.26846706702451567, 0.25340996207989314, 0.2677852195522943, 0.2393309268150377, 0.2270069973210476, 0.30969636290379815, 0.2826654417122311, 0.21359818403628214, 0.25671426079087317]
+macro_F1List [0.9216891386339691, 0.9491288613354915, 0.9589320343874543, 0.9622302982180213, 0.9666127135854877, 0.9636580189039382, 0.9676739605124525, 0.9696284872268626, 0.9702469116950938, 0.9697582800164913, 0.9699720563758799, 0.9712699842721678, 0.9742628533036083, 0.9699109774160546, 0.9638183511734795, 0.9767441860465116, 0.9783169692620135, 0.9762097451480402, 0.9686054146497886, 0.974858373161905, 0.9767747255264243, 0.9788437752905068, 0.9783780482218388, 0.9760875872283895, 0.9778894165432362, 0.9750339751714028, 0.9784543969216204, 0.9811647757638687, 0.9828139076791522, 0.9830429537784972]
+micro_F1List [0.6906401547854109, 0.7604642421485885, 0.8147088972230523, 0.8258724886417081, 0.841583389477067, 0.8319563593897984, 0.8367029361714192, 0.8454868752917751, 0.8466058659355229, 0.8555901555213133, 0.8476039689156207, 0.8505431841885842, 0.8618587253569991, 0.8511584954556649, 0.8349671162474973, 0.8624430228594273, 0.8691440975058391, 0.8696475146035497, 0.8347448076399635, 0.8756504581375674, 0.8671332134490985, 0.8778718298393086, 0.878247645454541, 0.8665023272235737, 0.874828173610222, 0.861728333703351, 0.8686693887620603, 0.8738263934991418, 0.8848006874570512, 0.8766631528910452]
+start testing...
+Processed 10000 rows
+Processed 20000 rows
+Processed 30000 rows
+Processed 40000 rows
+Processed 50000 rows
+Processed 60000 rows
+Processed 70000 rows
+Processed 80000 rows
+Processed 90000 rows
+Processed 100000 rows
+Processed 110000 rows
+Processed 120000 rows
+Processed 130000 rows
+0 0.9978753541076487 1409 1412
+1 0.9821156773211568 2581 2628
+10 1.0 139 139
+11 0.9997076878105817 3420 3421
+12 1.0 13 13
+13 0.9928571428571429 139 140
+14 1.0 17 17
+15 0.976461038961039 1203 1232
+16 1.0 309 309
+17 0.995 398 400
+18 0.9313725490196079 95 102
+19 0.9860724233983287 354 359
+2 0.9939975990396158 828 833
+20 0.9059625212947189 2659 2935
+21 0.9804772234273319 452 461
+22 0.06666666666666667 2 30
+23 0.9718548072336181 22410 23059
+24 0.9450943557339254 11068 11711
+25 0.6253602305475504 217 347
+26 0.0 0 4
+27 0.54 27 50
+28 0.9960360360360361 60808 61050
+3 0.9939903846153846 827 832
+4 0.9963674104826155 1920 1927
+5 0.9991194364393212 12481 12492
+6 0.9874843554443054 789 799
+7 0.9947058823529412 1691 1700
+8 0.9713940370668815 2411 2482
+9 0.9574468085106383 90 94
+Top-1 accuracy: 0.9830429537784972
+Top-3 accuracy: 0.9985341049641925
+Top-5 accuracy: 0.9997709539006551
+Macro-F1: 0.8766631528910452
+Micro-F1: 0.9830429537784972

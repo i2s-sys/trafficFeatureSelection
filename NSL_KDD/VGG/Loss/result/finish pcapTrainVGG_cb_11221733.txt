@@ -1,0 +1,169 @@
+2024-11-22 17:37:30.809940: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+当前脚本的文件名是: pcapTrainVGG_cb.py
+2024-11-22 17:37:33.106718: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-11-22 17:37:33.116162: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-22 17:37:33.118747: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2024-11-22 17:37:33.131136: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-22 17:37:33.131174: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-22 17:37:33.134640: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-22 17:37:33.134714: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-22 17:37:33.136101: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-22 17:37:33.136450: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-22 17:37:33.139849: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-22 17:37:33.140570: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-22 17:37:33.140760: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-22 17:37:33.141162: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-22 17:37:33.141196: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-22 17:37:33.882762: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-22 17:37:33.882820: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-22 17:37:33.882829: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-22 17:37:33.883572: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 16672 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 4090, pci bus id: 0000:3b:00.0, compute capability: 8.9)
+BETA = 0.9999, GAMMA = 2
+init data completed!
+2024-11-22 17:37:42.893025: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-22 17:37:42.893448: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-22 17:37:42.893482: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-22 17:37:42.893528: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-22 17:37:42.893543: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-22 17:37:42.893557: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-22 17:37:42.893583: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-22 17:37:42.893596: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-22 17:37:42.893610: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-22 17:37:42.893623: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-22 17:37:42.893934: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-22 17:37:42.943151: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-22 17:37:42.943518: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:3b:00.0 name: NVIDIA GeForce RTX 4090 computeCapability: 8.9
+coreClock: 2.625GHz coreCount: 128 deviceMemorySize: 23.65GiB deviceMemoryBandwidth: 938.86GiB/s
+2024-11-22 17:37:42.943550: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-22 17:37:42.943582: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-22 17:37:42.943595: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-22 17:37:42.943609: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-22 17:37:42.943622: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-22 17:37:42.943635: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-22 17:37:42.943649: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-22 17:37:42.943662: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-22 17:37:42.943954: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-22 17:37:42.943980: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-22 17:37:42.943989: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-22 17:37:42.943997: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-22 17:37:42.944529: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 16672 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 4090, pci bus id: 0000:3b:00.0, compute capability: 8.9)
+2024-11-22 17:37:43.292835: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:196] None of the MLIR optimization passes are enabled (registered 0 passes)
+2024-11-22 17:37:43.307489: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2100000000 Hz
+2024-11-22 17:37:44.053077: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-22 17:37:44.881655: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-22 17:37:44.886059: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-22 17:37:47.296282: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2024-11-22 17:37:47.420411: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2024-11-22 17:38:11.321695: I tensorflow/stream_executor/cuda/cuda_blas.cc:1838] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+Epoch 1 completed, average loss: 13.864891874959799, duration: 78.17 seconds
+Macro-F1: 0.8051923025842581
+Micro-F1: 0.805402767920511
+Epoch 2 completed, average loss: 5.1553076332419865, duration: 16.02 seconds
+Macro-F1: 0.8231259689640464
+Micro-F1: 0.8231458481192335
+Epoch 3 completed, average loss: 3.1971381002113346, duration: 15.70 seconds
+Macro-F1: 0.832812471115585
+Micro-F1: 0.8328158268275373
+Epoch 4 completed, average loss: 2.5065252955291206, duration: 15.89 seconds
+Macro-F1: 0.7686328608908499
+Micro-F1: 0.7698722498225693
+Epoch 5 completed, average loss: 2.221239347510585, duration: 15.96 seconds
+Macro-F1: 0.7679494285789856
+Micro-F1: 0.7691625266146201
+Epoch 6 completed, average loss: 2.0016215055825084, duration: 15.32 seconds
+Macro-F1: 0.7557987045250272
+Micro-F1: 0.7576295244854506
+Epoch 7 completed, average loss: 1.9784831599809412, duration: 15.73 seconds
+Macro-F1: 0.766399909933827
+Micro-F1: 0.7676987224982256
+Epoch 8 completed, average loss: 1.7896698603133967, duration: 15.85 seconds
+Macro-F1: 0.7667074900937102
+Micro-F1: 0.7680092264017033
+Epoch 9 completed, average loss: 1.7012011341606759, duration: 15.41 seconds
+Macro-F1: 0.7695530319219934
+Micro-F1: 0.7706706884315118
+Epoch 10 completed, average loss: 1.5994340762726933, duration: 15.66 seconds
+Macro-F1: 0.756682488633843
+Micro-F1: 0.7583836053938963
+Epoch 11 completed, average loss: 1.5767907520057634, duration: 15.32 seconds
+Macro-F1: 0.7656493959039772
+Micro-F1: 0.7669446415897799
+Epoch 12 completed, average loss: 1.536595176940413, duration: 15.58 seconds
+Macro-F1: 0.768658679944386
+Micro-F1: 0.7697835344215755
+Epoch 13 completed, average loss: 1.4644155761764603, duration: 15.55 seconds
+Macro-F1: 0.7820396340721965
+Micro-F1: 0.7826916252661463
+Epoch 14 completed, average loss: 1.3915528829561592, duration: 15.12 seconds
+Macro-F1: 0.7655849432286777
+Micro-F1: 0.7668559261887864
+Epoch 15 completed, average loss: 1.3311749401396307, duration: 14.99 seconds
+Macro-F1: 0.7658400340392628
+Micro-F1: 0.7670777146912704
+Epoch 16 completed, average loss: 1.3349706349928476, duration: 14.88 seconds
+Macro-F1: 0.769567254879268
+Micro-F1: 0.7705819730305182
+Epoch 17 completed, average loss: 1.2136946361014105, duration: 14.67 seconds
+Macro-F1: 0.7706768208947951
+Micro-F1: 0.7716465578424414
+Epoch 18 completed, average loss: 1.187985487231167, duration: 14.85 seconds
+Macro-F1: 0.7650585889914552
+Micro-F1: 0.7662792760823279
+Epoch 19 completed, average loss: 1.1497927277331899, duration: 15.05 seconds
+Macro-F1: 0.7803577283092933
+Micro-F1: 0.7810503903477644
+Epoch 20 completed, average loss: 1.0786221496182555, duration: 14.97 seconds
+Macro-F1: 0.7660381907525305
+Micro-F1: 0.7672107877927609
+Epoch 21 completed, average loss: 1.1080829269689039, duration: 14.87 seconds
+Macro-F1: 0.7706743107793608
+Micro-F1: 0.7716909155429382
+Epoch 22 completed, average loss: 1.0333579552181944, duration: 14.50 seconds
+Macro-F1: 0.7701613502374975
+Micro-F1: 0.7711586231369766
+Epoch 23 completed, average loss: 0.9947052088754708, duration: 14.79 seconds
+Macro-F1: 0.7699096805270047
+Micro-F1: 0.7707594038325053
+Epoch 24 completed, average loss: 0.9824676062303408, duration: 14.69 seconds
+Macro-F1: 0.7777681708212894
+Micro-F1: 0.7785220014194464
+Epoch 25 completed, average loss: 0.9752629544381033, duration: 14.75 seconds
+Macro-F1: 0.7917979293444106
+Micro-F1: 0.7921841731724627
+Epoch 26 completed, average loss: 0.9141111783295249, duration: 14.75 seconds
+Macro-F1: 0.7769003703116678
+Micro-F1: 0.7776792051100071
+Epoch 27 completed, average loss: 0.9190225790678789, duration: 14.78 seconds
+Macro-F1: 0.7683073589599827
+Micro-F1: 0.7693843151171043
+Epoch 28 completed, average loss: 0.8470837475908958, duration: 14.45 seconds
+Macro-F1: 0.7740218768481881
+Micro-F1: 0.7748846699787083
+Epoch 29 completed, average loss: 0.8561640117472186, duration: 14.53 seconds
+Macro-F1: 0.7816145443521265
+Micro-F1: 0.7822924059616749
+Epoch 30 completed, average loss: 0.8404501760370199, duration: 14.33 seconds
+Macro-F1: 0.7769776213450075
+Micro-F1: 0.7777679205110007
+loss_history [13.864891874959799, 5.1553076332419865, 3.1971381002113346, 2.5065252955291206, 2.221239347510585, 2.0016215055825084, 1.9784831599809412, 1.7896698603133967, 1.7012011341606759, 1.5994340762726933, 1.5767907520057634, 1.536595176940413, 1.4644155761764603, 1.3915528829561592, 1.3311749401396307, 1.3349706349928476, 1.2136946361014105, 1.187985487231167, 1.1497927277331899, 1.0786221496182555, 1.1080829269689039, 1.0333579552181944, 0.9947052088754708, 0.9824676062303408, 0.9752629544381033, 0.9141111783295249, 0.9190225790678789, 0.8470837475908958, 0.8561640117472186, 0.8404501760370199]
+macro_F1List [0.805402767920511, 0.8231458481192335, 0.8328158268275373, 0.7698722498225693, 0.7691625266146201, 0.7576295244854506, 0.7676987224982256, 0.7680092264017033, 0.7706706884315118, 0.7583836053938963, 0.7669446415897799, 0.7697835344215755, 0.7826916252661463, 0.7668559261887864, 0.7670777146912704, 0.7705819730305182, 0.7716465578424414, 0.7662792760823279, 0.7810503903477644, 0.7672107877927609, 0.7716909155429382, 0.7711586231369766, 0.7707594038325053, 0.7785220014194464, 0.7921841731724627, 0.7776792051100071, 0.7693843151171043, 0.7748846699787083, 0.7822924059616749, 0.7777679205110007]
+micro_F1List [0.8051923025842581, 0.8231259689640464, 0.832812471115585, 0.7686328608908499, 0.7679494285789856, 0.7557987045250272, 0.766399909933827, 0.7667074900937102, 0.7695530319219934, 0.756682488633843, 0.7656493959039772, 0.768658679944386, 0.7820396340721965, 0.7655849432286777, 0.7658400340392628, 0.769567254879268, 0.7706768208947951, 0.7650585889914552, 0.7803577283092933, 0.7660381907525305, 0.7706743107793608, 0.7701613502374975, 0.7699096805270047, 0.7777681708212894, 0.7917979293444106, 0.7769003703116678, 0.7683073589599827, 0.7740218768481881, 0.7816145443521265, 0.7769776213450075]
+start testing...
+Processed 10000 rows
+Processed 20000 rows
+0 0.9718875502008032 9438 9711
+1 0.6308735291825762 8096 12833
+Top-1 accuracy: 0.7777679205110007
+Top-3 accuracy: 1.0
+Top-5 accuracy: 1.0
+Macro-F1: 0.7769776213450075
+Micro-F1: 0.7777679205110007

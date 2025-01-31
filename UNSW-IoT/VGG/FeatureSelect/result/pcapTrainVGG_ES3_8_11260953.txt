@@ -1,0 +1,254 @@
+2024-11-27 10:02:24.256817: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+当前脚本的文件名是: pcapTrainVGG_ES3_8.py
+2024-11-27 10:02:26.499452: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX512F
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-11-27 10:02:26.508494: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-27 10:02:26.511141: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2024-11-27 10:02:26.524313: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:b1:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.74GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-11-27 10:02:26.524352: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 10:02:26.528210: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 10:02:26.528292: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 10:02:26.529829: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-27 10:02:26.530212: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-27 10:02:26.533398: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-27 10:02:26.534106: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-27 10:02:26.534288: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 10:02:26.534678: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-27 10:02:26.534710: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 10:02:27.190202: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-27 10:02:27.190253: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-27 10:02:27.190263: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-27 10:02:27.190947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 19281 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:b1:00.0, compute capability: 8.6)
+init data completed!
+2024-11-27 10:03:11.990990: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-27 10:03:11.991893: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:b1:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.74GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-11-27 10:03:11.991935: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 10:03:11.991992: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 10:03:11.992008: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 10:03:11.992024: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-27 10:03:11.992053: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-27 10:03:11.992070: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-27 10:03:11.992085: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-27 10:03:11.992100: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 10:03:11.992422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-27 10:03:12.041008: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-27 10:03:12.041362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:b1:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.74GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-11-27 10:03:12.041395: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 10:03:12.041427: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 10:03:12.041440: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 10:03:12.041454: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-27 10:03:12.041467: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-27 10:03:12.041481: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-27 10:03:12.041494: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-27 10:03:12.041508: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 10:03:12.041805: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-27 10:03:12.041852: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-27 10:03:12.041862: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-27 10:03:12.041870: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-27 10:03:12.042218: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 19281 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:b1:00.0, compute capability: 8.6)
+2024-11-27 10:03:12.414122: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:196] None of the MLIR optimization passes are enabled (registered 0 passes)
+2024-11-27 10:03:12.429689: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2100000000 Hz
+2024-11-27 10:03:13.184192: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 10:03:13.891912: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 10:03:13.897847: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 10:03:16.198559: W tensorflow/stream_executor/gpu/asm_compiler.cc:63] Running ptxas --version returned 256
+2024-11-27 10:03:16.347208: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: ptxas exited with non-zero error code 256, output: 
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2024-11-27 10:03:46.942570: I tensorflow/stream_executor/cuda/cuda_blas.cc:1838] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+Epoch 1 completed, average loss: 9.792835882032671, duration: 139.52 seconds
+Macro-F1: 0.7034542227443759
+Micro-F1: 0.9339049305990319
+Epoch 2 completed, average loss: 2.619582201091625, duration: 60.15 seconds
+Macro-F1: 0.731243546881211
+Micro-F1: 0.9414023729175892
+Epoch 3 completed, average loss: 1.9260882257691077, duration: 59.99 seconds
+Macro-F1: 0.8010270103613929
+Micro-F1: 0.9610392585014277
+Epoch 4 completed, average loss: 1.567195055234567, duration: 61.01 seconds
+Macro-F1: 0.8193781683098073
+Micro-F1: 0.9652155323794835
+Epoch 5 completed, average loss: 1.340601960815892, duration: 61.68 seconds
+Macro-F1: 0.8442865601388705
+Micro-F1: 0.969323092427736
+Epoch 6 completed, average loss: 1.340781322609794, duration: 61.45 seconds
+Macro-F1: 0.8289653047834167
+Micro-F1: 0.9690711417184565
+Epoch 7 completed, average loss: 1.053876488011878, duration: 60.73 seconds
+Macro-F1: 0.8255913492544571
+Micro-F1: 0.9696742964467316
+Epoch 8 completed, average loss: 1.0247144787835685, duration: 60.81 seconds
+Macro-F1: 0.8391233372675467
+Micro-F1: 0.9719800271801371
+Epoch 9 completed, average loss: 0.8991366118492319, duration: 59.87 seconds
+Macro-F1: 0.8393971467209036
+Micro-F1: 0.9721174548397441
+Epoch 10 completed, average loss: 0.8738493235898058, duration: 59.38 seconds
+Macro-F1: 0.8450280237233032
+Micro-F1: 0.973178701766709
+Epoch 11 completed, average loss: 0.7548465391220684, duration: 60.57 seconds
+Macro-F1: 0.8347805887522122
+Micro-F1: 0.9721098199697659
+Epoch 12 completed, average loss: 0.7084083576012866, duration: 60.02 seconds
+Macro-F1: 0.8454348743918368
+Micro-F1: 0.9722472476293729
+Epoch 13 completed, average loss: 0.6561624617770371, duration: 60.46 seconds
+Macro-F1: 0.8368043147352491
+Micro-F1: 0.9716899021209668
+Epoch 14 completed, average loss: 0.6609446931557023, duration: 59.97 seconds
+Macro-F1: 0.8558264472799413
+Micro-F1: 0.9767976301363588
+Epoch 15 completed, average loss: 0.5739907905003692, duration: 59.46 seconds
+Macro-F1: 0.8601468760376659
+Micro-F1: 0.9786910778909436
+Epoch 16 completed, average loss: 0.7749177627811683, duration: 59.52 seconds
+Macro-F1: 0.8641704198164769
+Micro-F1: 0.9773397059048085
+Epoch 17 completed, average loss: 0.6405268928865583, duration: 59.38 seconds
+Macro-F1: 0.8545494763795465
+Micro-F1: 0.9787979660706378
+Epoch 18 completed, average loss: 0.8021660774078487, duration: 60.43 seconds
+Macro-F1: 0.8556418832064033
+Micro-F1: 0.9770495808456382
+Epoch 19 completed, average loss: 0.5204775736397612, duration: 59.42 seconds
+Macro-F1: 0.8771700151604639
+Micro-F1: 0.9797141504680176
+Epoch 20 completed, average loss: 0.7700700498259012, duration: 59.47 seconds
+Macro-F1: 0.864223243336147
+Micro-F1: 0.9786987127609217
+Epoch 21 completed, average loss: 0.5745950767627609, duration: 60.02 seconds
+Macro-F1: 0.8628704987290413
+Micro-F1: 0.9798134037777336
+Epoch 22 completed, average loss: 0.49765805656010004, duration: 59.98 seconds
+Macro-F1: 0.8817505890706722
+Micro-F1: 0.9823939898303532
+Epoch 23 completed, average loss: 0.7231730747769755, duration: 60.71 seconds
+Macro-F1: 0.8674358896613469
+Micro-F1: 0.9812258547236941
+Epoch 24 completed, average loss: 0.509907383413983, duration: 59.97 seconds
+Macro-F1: 0.8684365460435092
+Micro-F1: 0.9820656904212921
+Epoch 25 completed, average loss: 0.5189725620493412, duration: 60.03 seconds
+Macro-F1: 0.8764759653180975
+Micro-F1: 0.9819740719815542
+Epoch 26 completed, average loss: 0.5227281272623596, duration: 59.62 seconds
+Macro-F1: 0.8858717728030332
+Micro-F1: 0.9835926644169249
+Epoch 27 completed, average loss: 0.5329247563484327, duration: 59.67 seconds
+Macro-F1: 0.8854359586546555
+Micro-F1: 0.9834094275374491
+Epoch 28 completed, average loss: 0.42318542732708514, duration: 59.69 seconds
+Macro-F1: 0.8898569053405644
+Micro-F1: 0.9831803814381042
+Epoch 29 completed, average loss: 0.4422954399595962, duration: 58.62 seconds
+Macro-F1: 0.8862055275619786
+Micro-F1: 0.9831116676083006
+Epoch 30 completed, average loss: 0.3945679657900988, duration: 56.78 seconds
+Macro-F1: 0.8852817338843646
+Micro-F1: 0.982897891248912
+TSMRecord—100 []
+loss_history—100 [9.792835882032671, 2.619582201091625, 1.9260882257691077, 1.567195055234567, 1.340601960815892, 1.340781322609794, 1.053876488011878, 1.0247144787835685, 0.8991366118492319, 0.8738493235898058, 0.7548465391220684, 0.7084083576012866, 0.6561624617770371, 0.6609446931557023, 0.5739907905003692, 0.7749177627811683, 0.6405268928865583, 0.8021660774078487, 0.5204775736397612, 0.7700700498259012, 0.5745950767627609, 0.49765805656010004, 0.7231730747769755, 0.509907383413983, 0.5189725620493412, 0.5227281272623596, 0.5329247563484327, 0.42318542732708514, 0.4422954399595962, 0.3945679657900988]
+Total training time: 25308.15 seconds
+scaling_factor_value： [[ 7.5392026e-01  1.0663455e-01  5.2143961e-01  1.5895146e-01
+   1.0374378e+00 -8.3709165e-04  4.0535492e-01  2.4382919e-02
+   9.8893100e-01  9.3013054e-01  8.8765144e-01  8.6251366e-01
+   9.8456925e-01  1.0383753e+00  9.7005004e-01  1.1812980e+00
+   9.8145521e-01  1.0945926e+00  1.1642034e+00  1.2550443e+00
+   1.2541451e+00  1.1849378e+00  1.0557047e+00  9.4093424e-01
+   1.0624557e+00  1.0945712e+00  1.0465276e+00  8.9728105e-01
+   9.5459425e-01  9.9179935e-01  9.4265956e-01  9.9628586e-01
+   9.7579235e-01  1.0426844e+00  9.9581492e-01  1.0039953e+00
+   1.0529709e+00  1.0071994e+00  1.0313774e+00  1.0077828e+00
+   9.9484742e-01  1.0164945e+00  9.6686530e-01  9.6771753e-01
+   1.0427583e+00  9.9380362e-01  9.8757327e-01  8.6385459e-01
+   9.6033996e-01  1.0215375e+00  1.0134455e+00  1.0800176e+00
+   9.6401060e-01  1.0415258e+00  8.0939436e-01  9.4111246e-01
+   1.1550967e+00  9.8388886e-01  9.9656606e-01  1.6448414e-05
+   6.1528575e-01  6.8013370e-01  1.0657772e+00  1.6448414e-05
+   9.6082240e-01  1.6448414e-05  9.5961380e-01  9.6040374e-01
+   9.9503231e-01  9.9329889e-01  1.1122018e+00  8.0332255e-01]]
+start testing...
+sorted_indices： [19 20 21 15 18 56 70 17 25 51 62 24 22 36 26 44 33 53 13  4 38 49 41 50
+ 39 37 35 58 31 34 68 40 45 69 29  8 46 12 57 16 32 14 43 42 52 64 67 48
+ 66 28 30 55 23  9 27 10 47 11 54 71  0 61 60  2  6  3  1  7 59 63 65  5]
+loss_history [9.792835882032671, 2.619582201091625, 1.9260882257691077, 1.567195055234567, 1.340601960815892, 1.340781322609794, 1.053876488011878, 1.0247144787835685, 0.8991366118492319, 0.8738493235898058, 0.7548465391220684, 0.7084083576012866, 0.6561624617770371, 0.6609446931557023, 0.5739907905003692, 0.7749177627811683, 0.6405268928865583, 0.8021660774078487, 0.5204775736397612, 0.7700700498259012, 0.5745950767627609, 0.49765805656010004, 0.7231730747769755, 0.509907383413983, 0.5189725620493412, 0.5227281272623596, 0.5329247563484327, 0.42318542732708514, 0.4422954399595962, 0.3945679657900988]
+macro_F1List []
+micro_F1List []
+starting retraining
+K= 8 top_k_indices [19 20 21 15 18 56 70 17]
+2024-11-27 17:05:01.589678: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-27 17:05:01.591191: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:b1:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.74GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-11-27 17:05:01.591256: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 17:05:01.591345: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 17:05:01.591361: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 17:05:01.591385: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-27 17:05:01.591417: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-27 17:05:01.591460: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-27 17:05:01.591490: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-27 17:05:01.591510: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 17:05:01.591838: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-27 17:05:01.591895: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-27 17:05:01.591906: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-27 17:05:01.591914: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-27 17:05:01.592285: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 19281 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:b1:00.0, compute capability: 8.6)
+init data completed!
+2024-11-27 17:06:52.804767: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2024-11-27 17:06:52.805207: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:b1:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.74GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-11-27 17:06:52.805243: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2024-11-27 17:06:52.805282: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2024-11-27 17:06:52.805296: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2024-11-27 17:06:52.805310: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2024-11-27 17:06:52.805323: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2024-11-27 17:06:52.805336: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10
+2024-11-27 17:06:52.805349: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2024-11-27 17:06:52.805363: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2024-11-27 17:06:52.805665: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2024-11-27 17:06:52.805698: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-11-27 17:06:52.805707: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 
+2024-11-27 17:06:52.805714: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N 
+2024-11-27 17:06:52.806041: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 19281 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:b1:00.0, compute capability: 8.6)
+start retraining...
+Macro-F1: 0.22796458165702005
+Micro-F1: 0.7891172563331246
+Epoch 1 completed, average loss: 19.69441278479216, duration: 3183.93 seconds
+Macro-F1: 0.5086892944859446
+Micro-F1: 0.8930736459558095
+Epoch 2 completed, average loss: 8.078901817671765, duration: 662.82 seconds
+Macro-F1: 0.6089376965019624
+Micro-F1: 0.9095191558887752
+Epoch 3 completed, average loss: 5.4595783677219, duration: 667.32 seconds
+Macro-F1: 0.6339514531202002
+Micro-F1: 0.9151231504527478
+Epoch 4 completed, average loss: 4.667304261838436, duration: 670.28 seconds
+Macro-F1: 0.6395003572485793
+Micro-F1: 0.9168791705477256
+Epoch 5 completed, average loss: 4.255703787450067, duration: 663.59 seconds
+Macro-F1: 0.6825275466118524
+Micro-F1: 0.9272931331979415
+Epoch 6 completed, average loss: 3.9154995210159758, duration: 667.95 seconds
+Macro-F1: 0.7053417562006996
+Micro-F1: 0.9311716471468491
+Epoch 7 completed, average loss: 3.709327932027378, duration: 665.63 seconds
+Macro-F1: 0.7113975049491359
+Micro-F1: 0.93316434821115
+Epoch 8 completed, average loss: 3.875561999710324, duration: 666.25 seconds
+Macro-F1: 0.7238450383000183
+Micro-F1: 0.9358823619233765
+Epoch 9 completed, average loss: 3.516394202035993, duration: 10707.94 seconds
+Macro-F1: 0.7369906629380838
+Micro-F1: 0.9366153094412802
+Epoch 10 completed, average loss: 3.58639840571312, duration: 660.51 seconds
+Macro-F1: 0.7443983946459632
+Micro-F1: 0.9382491716166074
+Epoch 11 completed, average loss: 3.0818201590393395, duration: 664.66 seconds

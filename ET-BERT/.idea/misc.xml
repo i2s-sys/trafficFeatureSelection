@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Remote Python 3.9.18 (sftp://xuke@115.157.197.187:41564/home/xuke/anaconda3/envs/myh/bin/python)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.7.16 (sftp://root@115.157.197.188:41564/home/xuke/anaconda3/envs/etbert/bin/python)" project-jdk-type="Python SDK" />
+  <component name="accountSettings">
+    <option name="activeRegion" value="us-east-1" />
+    <option name="recentlyUsedRegions">
+      <list>
+        <option value="us-east-1" />
+      </list>
+    </option>
+  </component>
+</project>

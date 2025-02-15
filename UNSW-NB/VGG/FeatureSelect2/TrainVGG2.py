@@ -4,7 +4,7 @@ import time
 import tensorflow as tf
 import numpy as np
 import csv, os
-from pcapVGG2 import VGG2 # 导入DNN类
+from VGGRetrain import VGG2 # 导入DNN类
 import matplotlib.pyplot as plt
 
 # 获取当前脚本的文件名

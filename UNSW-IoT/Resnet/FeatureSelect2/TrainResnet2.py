@@ -4,7 +4,7 @@ import numpy as np
 import csv, os
 import argparse
 
-from pcapResnet2 import Resnet2
+from ResnetRetrain import Resnet2
 from tensorflow.keras.backend import clear_session
 import matplotlib.pyplot as plt
 

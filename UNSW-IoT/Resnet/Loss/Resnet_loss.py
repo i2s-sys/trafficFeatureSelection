@@ -192,10 +192,25 @@ class Resnet():
         print(f'Epoch {self.epoch_count + 1} completed, average loss: {average_loss}, duration: {epoch_duration:.2f} seconds')
         ''' 早停策略 每次都要'''
         keyFeatureNums = self.K
-        values, indices = tf.math.top_k(self.scaling_factor, k=keyFeatureNums, sorted=True)
-        max_indices = self.sess.run(indices)
-        max_indices = max_indices[0]
-        max_set = set(max_indices)  # 本次迭代得到的因子集合
+        scaling_factor_array = self.sess.run(self.scaling_factor).flatten()
+        import heapq
+        def top_k_with_indices(arr, k):
+            heap = []
+            for index, value in enumerate(arr):
+                if len(heap) < k:
+                    heapq.heappush(heap, (value, index))
+                else:
+                    if value > heap[0][0]:
+                        heapq.heappop(heap)
+                        heapq.heappush(heap, (value, index))
+            top_k_sorted = sorted(heap, key=lambda x: x[0], reverse=True)
+            top_values = [item[0] for item in top_k_sorted]
+            top_indices = [item[1] for item in top_k_sorted]
+            print("top_values",top_values)
+            print("top_indices",top_indices)
+            return top_values, top_indices
+        values, indices = top_k_with_indices(scaling_factor_array, keyFeatureNums)
+        max_set = set(indices)
         self.intersection_sets.append(max_set)  # 将当前epoch的关键特征下标集合添加到列表中
         if len(self.intersection_sets) > self.ES_THRESHOLD:  # 保持列表长度为ES_THRESHOLD
             self.intersection_sets.pop(0)

@@ -18,8 +18,8 @@ LOSSTYPE = "cb_focal_loss"
 
 LEARNING_RATE = 0.0001
 BATCH_SIZE = 128
-TRAIN_FILE = '../../train_data2.csv'
-TEST_FILE = '../../test_data2.csv'
+TRAIN_FILE = '../../train_data.csv'
+TEST_FILE = '../../test_data.csv'
 
 MODEL_SAVE_PATH = './model/'
 MODEL_SAVE_PATH2 = './model2/'
@@ -215,7 +215,7 @@ class Resnet2(): # 第二次训练
 
         # Processing test file and splitting data
         test_data_temp = {i: [] for i in range(OUTPUT_DIM)}
-        with open(TEST_FILE, mode="r", encoding="utf-8") as f:
+        with open(TEST_FILE, mode="r", encoding="utf-8-sig") as f:
             csv_reader = csv.reader(f)
             for row in csv_reader:
                 data = [0 if char == 'None' else np.float32(char) for i, char in enumerate(row) if

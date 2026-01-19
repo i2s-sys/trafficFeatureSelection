@@ -1,0 +1,214 @@
+def Draw_PT():
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from sklearn.metrics import precision_recall_curve
+
+    plt.figure(figsize=(8, 4.5))  # 画布尺寸
+
+    # 绘制随机参考线（正例比例）
+    pos_ratio = np.mean(No_def_label)
+    plt.axhline(y=pos_ratio, color='k', linestyle='--', label=f'Random (POS-RATIO={pos_ratio:.2f})')
+
+    # 各模型的预测结果
+    models = {
+        'Origin': predict_labels_Nodef,
+        'DFD': predict_labels_DFD,
+        'Walkie-Talkie': predict_labels_WalkieTalkie,
+        # 'Front': predict_labels_Front,
+        'AWA': predict_labels_AWA,
+        'ALERT': predict_labels_Alert,
+        'Moe-Gen': predict_labels_Moe_Gen,           # ✅ 新增
+    }
+
+    # 定义调色板
+    color_map = plt.cm.get_cmap('tab10')
+
+    # 绘制每个模型的 P-T 曲线
+    for idx, (name, preds) in enumerate(models.items()):
+        precision, _, thresholds = precision_recall_curve(No_def_label, preds)
+        plt.plot(thresholds, precision[:-1], 
+                 label=name, linewidth=3, color=color_map(idx))
+
+    # 设置图形属性
+    plt.grid()
+    plt.xlabel('Classification Threshold', fontsize=16)
+    plt.ylabel('Precision', fontsize=16)
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.title(f'WF-model: {CF_Model_Name}', fontsize=16)
+    plt.legend(loc='upper left', fontsize=9,ncol=2)
+    plt.subplots_adjust(left=0.2, bottom=0.15)
+
+    # 保存图形
+    Save_Path='/home/xuke/zpc/Code/Moe_Gen/Open_World/PT_Save'
+    os.makedirs(Save_Path,exist_ok=True)
+    plt.savefig(f'{Save_Path}/{CF_Model_Name}_in_{DataSet_name}_1to{MutiNum}_PT.pdf',
+                dpi=800, bbox_inches='tight', pad_inches=0)
+    plt.close()
+
+    print(f"Success saved P-T comparison plot for {DataSet_name} dataset.")
+
+def Drew_ROC():
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import roc_curve, auc
+
+    plt.figure(figsize=(8, 4.5))
+    plt.plot([0, 1], [0, 1], 'k--')
+
+    # 定义模型名与对应的预测结果
+    models = {
+        'Origin': predict_labels_Nodef,
+        'DFD': predict_labels_DFD,
+        'Walkie-Talkie': predict_labels_WalkieTalkie,
+        # 'Front': predict_labels_Front,
+        'AWA': predict_labels_AWA,
+        'ALERT': predict_labels_Alert,
+        'Moe-Gen': predict_labels_Moe_Gen,           # ✅ 新增
+    }
+
+    # 定义调色板（tab10 有 10 种标准配色）
+    color_map = plt.cm.get_cmap('tab10')
+
+    # 遍历模型绘图
+    for idx, (name, preds) in enumerate(models.items()):
+        fpr, tpr, _ = roc_curve(No_def_label, preds)
+        aucval = auc(fpr, tpr)
+        plt.plot(
+            fpr, tpr,
+            label=f'{name} (AUC={round(aucval, 4)})',
+            linewidth=3,
+            color=color_map(idx)
+        )
+
+    # 设置图形属性
+    plt.grid()
+    plt.xlabel('FPR', fontsize=16)
+    plt.ylabel('TPR', fontsize=16)
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.title(f'WF-model: {CF_Model_Name}', fontsize=16)
+    plt.legend(loc='lower right', fontsize=9,ncol=2)
+    plt.subplots_adjust(left=0.2, bottom=0.15)
+
+    # 保存图形
+    Save_Path='/home/xuke/zpc/Code/Moe_Gen/Open_World/PR_Save'
+    os.makedirs(Save_Path,exist_ok=True)
+    plt.savefig(f'{Save_Path}/{CF_Model_Name}_in_{DataSet_name}_1to{MutiNum}_ROC.pdf',
+                dpi=800, bbox_inches='tight', pad_inches=0)
+    plt.close()
+
+    print(f"Success saved ROC comparison plot for {DataSet_name} dataset.")
+
+def Draw_PR():
+    if MutiNum==1:
+        legend_Loc='lower right'
+    elif MutiNum==4:
+        legend_Loc='upper right'
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from sklearn.metrics import precision_recall_curve, auc
+
+    # 创建画布
+    plt.figure(figsize=(8, 4.5))
+
+    # 绘制随机猜测参考线
+    pos_ratio = np.mean(No_def_label)
+    plt.axhline(y=pos_ratio, color='k', linestyle='--',
+                label=f'Random (POS-RATIO={pos_ratio:.2f})')
+
+    # 模型预测结果
+    models = {
+        'Origin': predict_labels_Nodef,
+        'DFD': predict_labels_DFD,
+        'Walkie-Talkie': predict_labels_WalkieTalkie,
+        # 'Front': predict_labels_Front,
+        'AWA': predict_labels_AWA,
+        'ALERT': predict_labels_Alert,
+        'Moe-Gen': predict_labels_Moe_Gen,           # ✅ 新增
+    }
+
+    # 调色板
+    color_map = plt.cm.get_cmap('tab10')
+
+    # 绘制每个模型的 PR 曲线
+    for idx, (name, preds) in enumerate(models.items()):
+        precision, recall, _ = precision_recall_curve(No_def_label, preds)
+        pr_auc = auc(recall, precision)
+        plt.plot(
+            recall,
+            precision,
+            label=f'{name} (PR-AUC={pr_auc:.4f})',
+            linewidth=3,
+            color=color_map(idx)
+        )
+        # precision, recall, thresholds = precision_recall_curve(No_def_label, preds)
+        
+        # # 【核心修改】去除 Sklearn 强制添加的 (Recall=0, Precision=1) 锚点
+        # # Sklearn 会把 (0, 1) 放在数组的最后一位（或第一位，取决于版本，通常是最后）
+        # # 我们做一个简单的判断来安全地移除它
+        
+        # # 1. 找到真实的绘图数据
+        # real_precision = precision
+        # real_recall = recall
+        
+        # # 检查最后一个点是否是人工锚点 (R=0, P=1)，如果是则切片去掉
+        # if real_recall[-1] == 0.0 and real_precision[-1] == 1.0:
+        #     real_precision = real_precision[:-1]
+        #     real_recall = real_recall[:-1]
+            
+        # # 2. 绘图时使用处理过的数据
+        # plt.plot(real_recall, real_precision, 
+        #          label=name, linewidth=3, color=color_map(idx))
+
+    # 图形属性
+    plt.grid()
+    plt.xlabel('Recall', fontsize=16)
+    plt.ylabel('Precision', fontsize=16)
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.title(f'WF-model: {CF_Model_Name}', fontsize=16)
+    plt.legend(loc=legend_Loc, fontsize=9,ncol=2)
+    plt.subplots_adjust(left=0.2, bottom=0.15)
+    Save_Path='/home/xuke/zpc/Code/Moe_Gen/Open_World/PR_Save'
+    os.makedirs(Save_Path,exist_ok=True)
+    # 保存图像
+    plt.savefig(
+        f'{Save_Path}/{CF_Model_Name}_in_{DataSet_name}_1to{MutiNum}_PR.pdf',
+        dpi=800, bbox_inches='tight', pad_inches=0
+    )
+    plt.close()
+
+    print(f"Success saved PR comparison plot for {DataSet_name} dataset.")
+
+
+
+if __name__ =='__main__'
+ #分类防御数据
+
+
+        data_x,label_y=load_data()  #加载数据
+        close_world_class_num=20    # 设置封闭场景有多少个类别
+        new_label=[1 if i<close_world_class_num else 0 for i in label_y]  # label<20,置为1，否则置为0
+       
+        # 方法==处理
+       
+       
+
+        predict_labels_Nodef=model_predict(model_,No_def_data,Class_type,example_num)
+        
+        predict_labels_DFD=model_predict(model_,dfd_data,Class_type,example_num)
+        predict_labels_WalkieTalkie=model_predict(model_,WalkieTalkie_data,Class_type,example_num)
+        predict_labels_Front=model_predict(model_,Front_data,Class_type,example_num)
+        
+        predict_labels_Alert=model_predict(model_,Alert_data,Class_type,example_num)
+        predict_labels_AWA=model_predict(model_,AWA_data,Class_type,example_num)
+        predict_labels_Moe_Gen=model_predict(model_,Moe_Gen_data,Class_type,example_num)
+        Draw_PR()
+        Draw_PT()
+        Drew_ROC()  

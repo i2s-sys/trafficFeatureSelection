@@ -179,8 +179,8 @@ class VGG():
             top_k_sorted = sorted(heap, key=lambda x: x[0], reverse=True)
             top_values = [item[0] for item in top_k_sorted]
             top_indices = [item[1] for item in top_k_sorted]
-            print("top_values",top_values)
-            print("top_indices",top_indices)
+            # print("top_values",top_values)
+            # print("top_indices",top_indices)
             return top_values, top_indices
         values, indices = top_k_with_indices(scaling_factor_array, keyFeatureNums)
         max_set = set(indices)

@@ -1,4 +1,4 @@
-# TensorFlow 2.9.0 compatible AutoEncoder + RandomForest with feature selection for UNSW-IoT
+
 import time
 import tensorflow as tf
 from sklearn.ensemble import RandomForestClassifier
@@ -8,10 +8,10 @@ from sklearn.metrics import f1_score
 import numpy as np
 import csv, random
 
-# 默认保持图执行（graph mode），比强制 eager 更快
+
 tf.config.run_functions_eagerly(False)
 
-# 设置随机种子确保结果可复现
+
 def set_deterministic_seed(seed):
     """设置所有随机种子确保结果可复现"""
     tf.keras.utils.set_random_seed(seed)
@@ -25,7 +25,7 @@ K = 32
 OUTPUT_DIM = 25
 BETA = 0.999
 GAMMA = 1
-TRAIN_FILE = '../../OWtrain_data2.csv'  #封闭世界 数据集 25个设备
+TRAIN_FILE = '../../OWtrain_data2.csv'  
 TEST_FILE = '../../OWtest_data2.csv'
 LEARNING_RATE = 0.0001
 BATCH_SIZE = 512
@@ -37,7 +37,7 @@ KEEP_PROB = 0.5
 top_k_values=[]
 top_k_indice=[]
 NUM_ATTENTION_CHANNELS=1
-LOG_INTERVAL = 500  # 每多少个 batch 打印一次进度
+LOG_INTERVAL = 500  
 
 class AEModelWithFactor(Model):
     def __init__(self, data_dim, seed=None):
@@ -45,36 +45,36 @@ class AEModelWithFactor(Model):
         self.data_dim = data_dim
         self.seed = seed
         
-        # Feature scaling factor for feature selection
+        
         self.scaling_factor = tf.Variable(
             tf.constant(1, dtype=tf.float32, shape=[1, data_dim]), 
             trainable=True,
             name='scaling_factor'
         )
         
-        # Encoder layers
+        
         self.encoder1 = layers.Dense(128, activation='relu', 
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.encoder2 = layers.Dense(64, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         
-        # Decoder layers
+        
         self.decoder1 = layers.Dense(128, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.decoder2 = layers.Dense(data_dim,
                                     kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
     
     def call(self, inputs, training=None):
-        # Apply scaling factor
+        
         batch_size = tf.shape(inputs)[0]
         scaling_factor_extended = tf.tile(self.scaling_factor, [batch_size, 1])
         scaled_input = tf.multiply(inputs, scaling_factor_extended)
         
-        # Encoder
+        
         encoded = self.encoder1(scaled_input)
         encoded = self.encoder2(encoded)
         
-        # Decoder
+        
         decoded = self.decoder1(encoded)
         decoded = self.decoder2(decoded)
         
@@ -96,13 +96,13 @@ class AE():
         self.epoch_count = 0
         
         self.init_data()
-        # ceil 取整，至少 1 个 batch
+        
         self.total_iterations_per_epoch = max(1, (self.train_length + BATCH_SIZE - 1) // BATCH_SIZE)
         
-        # Create the model
+        
         self.model = AEModelWithFactor(data_dim=DATA_DIM, seed=self.seed)
         
-        # Setup optimizer
+        
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=self.learning_rate)
 
     def compute_loss(self, inputs, outputs):
@@ -140,7 +140,7 @@ class AE():
             all_labels.append(label)
             num_batches += 1
         
-        # 在所有批次数据累积后训练分类器
+        
         all_encoded_features = np.vstack(all_encoded_features)
         all_labels = np.hstack(all_labels)
         self.classifier.fit(all_encoded_features, all_labels)
@@ -170,7 +170,7 @@ class AE():
         all_labels = np.hstack(all_labels)
         predictions = self.classifier.predict(all_encoded_features)
         
-        # 统计每个类的正确预测次数和总预测次数
+        
         for true_label, pred_label in zip(all_labels, predictions):
             true_label_str = str(int(true_label))
             if true_label_str not in label_count:
@@ -180,7 +180,7 @@ class AE():
             if true_label == pred_label:
                 label_correct[true_label_str] += 1
 
-        # 计算并打印每个类的准确率
+        
         for label in sorted(label_count):
             accuracy = label_correct[label] / label_count[label]
             print(f'Label {label}: Accuracy {accuracy:.2f} ({label_correct[label]}/{label_count[label]})')
@@ -196,7 +196,7 @@ class AE():
         num_batches = 0
         epoch_start_time = time.time()
         
-        # 随机打乱训练数据
+        
         np.random.shuffle(self.train_data)
         
         for step in range(self.total_iterations_per_epoch):

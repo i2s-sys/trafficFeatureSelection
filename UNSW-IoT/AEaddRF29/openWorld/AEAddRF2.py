@@ -1,4 +1,4 @@
-# TensorFlow 2.9.0 compatible AutoEncoder + RandomForest for selected features (UNSW-IoT)
+
 import time
 import tensorflow as tf
 from sklearn.ensemble import RandomForestClassifier
@@ -8,10 +8,10 @@ from sklearn.metrics import f1_score
 import numpy as np
 import csv, random, os
 
-# Enable eager execution (default in TF 2.x)
+
 tf.config.run_functions_eagerly(True)
 
-# 设置随机种子确保结果可复现
+
 def set_deterministic_seed(seed):
     """设置所有随机种子确保结果可复现"""
     tf.keras.utils.set_random_seed(seed)
@@ -43,33 +43,33 @@ class AEModel2(Model):
         super(AEModel2, self).__init__()
         self.dim = dim
         self.seed = seed
-        # fixed_scaling: shape [1, dim] or None
+        
         self.fixed_scaling = fixed_scaling
         
-        # Encoder layers
+        
         self.encoder1 = layers.Dense(128, activation='relu', 
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.encoder2 = layers.Dense(64, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         
-        # Decoder layers
+        
         self.decoder1 = layers.Dense(128, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.decoder2 = layers.Dense(dim,
                                     kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
     
     def call(self, inputs, training=None):
-        # Apply fixed scaling if provided
+        
         if self.fixed_scaling is not None:
             batch_size = tf.shape(inputs)[0]
             scaled = tf.multiply(inputs, tf.tile(self.fixed_scaling, [batch_size, 1]))
         else:
             scaled = inputs
-        # Encoder
+        
         encoded = self.encoder1(scaled)
         encoded = self.encoder2(encoded)
         
-        # Decoder
+        
         decoded = self.decoder1(encoded)
         decoded = self.decoder2(decoded)
         
@@ -94,13 +94,13 @@ class AE2():
         self.init_data()
         self.total_iterations_per_epoch = self.train_length // BATCH_SIZE
         
-        # Create the model
-        # 加载预训练的 scaling_factor，并按选中特征截取，作为冻结层
+        
+        
         scaling_path = os.path.join(os.path.dirname(__file__), FactorPath)
         fixed_scaling = None
         if os.path.exists(scaling_path):
             full_scaling = np.load(scaling_path)
-            # 保留缩放因子最大的 32 个维度，其余置零
+            
             if full_scaling.ndim == 2 and full_scaling.shape[1] >= DATA_DIM:
                 full_scaling_masked = np.zeros_like(full_scaling, dtype=np.float32)
                 top_idx = np.argsort(full_scaling.flatten())[::-1][:32]
@@ -122,7 +122,7 @@ class AE2():
         else:
             print("Scaling factor not loaded; using raw inputs.")
         
-        # Setup optimizer
+        
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=self.learning_rate)
 
     def compute_loss(self, inputs, outputs):
@@ -157,7 +157,7 @@ class AE2():
             all_labels.append(label)
             num_batches += 1
 
-        # 在所有批次数据累积后训练分类器
+        
         all_encoded_features = np.vstack(all_encoded_features)
         all_labels = np.hstack(all_labels)
         self.classifier.fit(all_encoded_features, all_labels)
@@ -165,7 +165,7 @@ class AE2():
         epoch_duration = epoch_end_time - epoch_start_time
         print(f'duration: {epoch_duration:.2f} seconds')
         self.test_classifier()
-        # 训练结束后再次输出因子，确认未被修改
+        
         if self.model.fixed_scaling is not None:
             print(f"Scaling factor after training: {self.model.fixed_scaling[:, :8]}")
 
@@ -190,7 +190,7 @@ class AE2():
         all_labels = np.hstack(all_labels)
         predictions = self.classifier.predict(all_encoded_features)
         
-        # 统计每个类的正确预测次数和总预测次数
+        
         for true_label, pred_label in zip(all_labels, predictions):
             true_label_str = str(int(true_label))
             if true_label_str not in label_count:
@@ -215,7 +215,7 @@ class AE2():
         num_batches = 0
         epoch_start_time = time.time()
         
-        # 随机打乱训练数据
+        
         np.random.shuffle(self.train_data)
         
         for step in range(self.total_iterations_per_epoch):
@@ -262,7 +262,7 @@ class AE2():
         expected_len = DATA_DIM + 1
 
         def parse_row(row):
-            # skip empty or malformed rows
+            
             if not row or len(row) < expected_len:
                 return None
             data = []

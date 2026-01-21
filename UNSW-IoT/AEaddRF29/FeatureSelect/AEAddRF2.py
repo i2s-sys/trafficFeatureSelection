@@ -1,4 +1,4 @@
-# TensorFlow 2.9.0 compatible AutoEncoder + RandomForest for selected features (UNSW-IoT)
+
 import time
 import tensorflow as tf
 from sklearn.ensemble import RandomForestClassifier
@@ -8,10 +8,10 @@ from sklearn.metrics import f1_score
 import numpy as np
 import csv, random
 
-# Enable eager execution (default in TF 2.x)
+
 tf.config.run_functions_eagerly(True)
 
-# 设置随机种子确保结果可复现
+
 def set_deterministic_seed(seed):
     """设置所有随机种子确保结果可复现"""
     tf.keras.utils.set_random_seed(seed)
@@ -43,24 +43,24 @@ class AEModel2(Model):
         self.dim = dim
         self.seed = seed
         
-        # Encoder layers
+        
         self.encoder1 = layers.Dense(128, activation='relu', 
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.encoder2 = layers.Dense(64, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         
-        # Decoder layers
+        
         self.decoder1 = layers.Dense(128, activation='relu',
                                    kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
         self.decoder2 = layers.Dense(dim,
                                     kernel_initializer=tf.keras.initializers.glorot_uniform(seed=self.seed))
     
     def call(self, inputs, training=None):
-        # Encoder
+        
         encoded = self.encoder1(inputs)
         encoded = self.encoder2(encoded)
         
-        # Decoder
+        
         decoded = self.decoder1(encoded)
         decoded = self.decoder2(decoded)
         
@@ -85,10 +85,10 @@ class AE2():
         self.init_data()
         self.total_iterations_per_epoch = self.train_length // BATCH_SIZE
         
-        # Create the model
+        
         self.model = AEModel2(dim=dim, seed=self.seed)
         
-        # Setup optimizer
+        
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=self.learning_rate)
 
     def compute_loss(self, inputs, outputs):
@@ -123,7 +123,7 @@ class AE2():
             all_labels.append(label)
             num_batches += 1
         
-        # 在所有批次数据累积后训练分类器
+        
         all_encoded_features = np.vstack(all_encoded_features)
         all_labels = np.hstack(all_labels)
         self.classifier.fit(all_encoded_features, all_labels)
@@ -153,7 +153,7 @@ class AE2():
         all_labels = np.hstack(all_labels)
         predictions = self.classifier.predict(all_encoded_features)
         
-        # 统计每个类的正确预测次数和总预测次数
+        
         for true_label, pred_label in zip(all_labels, predictions):
             true_label_str = str(int(true_label))
             if true_label_str not in label_count:
@@ -178,7 +178,7 @@ class AE2():
         num_batches = 0
         epoch_start_time = time.time()
         
-        # 随机打乱训练数据
+        
         np.random.shuffle(self.train_data)
         
         for step in range(self.total_iterations_per_epoch):
